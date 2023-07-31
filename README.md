@@ -52,3 +52,22 @@ For training a model you can configure `scripts_mcl/config.yaml` and run `script
 After training a model, one can run the MCL example, e.g. (`scripts_mcl/run_mcl.py -c PATH-TO-YOUR_CKPT -i data/indoor_scan_poses_2d/seqX -cal data/indoor_scan_poses_2d/base2laser.txt -o out_poses.txt`) with the trained model.
 
 The Pretrained models can be downloaded [here](https://www.ipb.uni-bonn.de/html/projects/locndf/experiments.zip) and should be placed under `/experiments`.
+
+## Citation
+
+If you use this library for any academic work, please cite the original paper.
+
+```bibtex
+@article{wiesmann2023ral,
+author = {L. Wiesmann and T. Guadagnino and I. Vizzo and N. Zimmerman and Y. Pan and H. Kuang and J. Behley and C. Stachniss},
+title = {{LocNDF: Neural Distance Field Mapping for Robot Localization}},
+journal = ral,
+volume = {8},
+number = {8},
+pages = {4999--5006},
+year = 2023,
+issn = {2377-3766},
+doi = {10.1109/LRA.2023.3291274},
+codeurl = {https://github.com/PRBonn/LocNDF}
+}
+```
