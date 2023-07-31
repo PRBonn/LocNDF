@@ -35,10 +35,20 @@ For the training of multiple key-poses you can use the `config/config_mapping.ya
 
 Tracking the car pose in the trained submaps can be done using `python3 scripts/pose_tracking.py experiments/PATH-TO-THE-CHECKPOINTS/best-v*.ckpt -vis`.
 
-Pretrained models can be downloaded !here! and should be placed under `/experiments`. Those models can be used as explained above.
+Pretrained models can be downloaded [here](https://www.ipb.uni-bonn.de/html/projects/locndf/experiments.zip) and should be placed under `/experiments`. Those models can be used as explained above.
 
 ### Training on your own data
+
 Most importantly implement your own dataloader. An example can be seen in `src/loc_ndf/datasets/datasets.py`. Second, exchange the dataloader in the training script by you dataloader. Ready to train.
 
-## Todos:
-[ ] Provide data and documentation for MCL
+### 2D - MCL
+
+The data can be downloaded [here](https://www.ipb.uni-bonn.de/html/projects/locndf/indoor_scan_poses_2d.zip). The training data consists of `poses.txt` and `scans/*.npy`. The evaluation is done on seq1 to seq5 using the provided scans as well as the `odometry.txt`. The extrected files are expected to be in in `data/`.
+
+#### Training
+
+For training a model you can configure `scripts_mcl/config.yaml` and run `scripts_mcl/train.py`.
+
+After training a model, one can run the MCL example, e.g. (`scripts_mcl/run_mcl.py -c PATH-TO-YOUR_CKPT -i data/indoor_scan_poses_2d/seqX -cal data/indoor_scan_poses_2d/base2laser.txt -o out_poses.txt`) with the trained model.
+
+The Pretrained models can be downloaded [here](https://www.ipb.uni-bonn.de/html/projects/locndf/experiments.zip) and should be placed under `/experiments`.

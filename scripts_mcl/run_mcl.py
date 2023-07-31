@@ -78,7 +78,7 @@ def get_background_image(model, num_voxels):
     help="path to calibration file",
     required=True,
 )
-@click.option("--num_voxels", "-v", type=int, default=400, required=True)
+@click.option("--num_voxels", "-v", type=int, default=1000, required=True)
 @click.option(
     "--output_file",
     "-o",
