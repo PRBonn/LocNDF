@@ -1,0 +1,45 @@
+experiment:
+    id: mcl_2d
+
+
+##Training
+train:
+    n_gpus: 1
+    max_epoch: 50
+    lr: 0.0001
+    num_workers: 8
+    batch_size: 10000
+
+##Network
+model:
+    type: LidarNerf # Siren/ LidarNerf
+    params:
+        inter_fdim: 128
+        sigmoid: False
+        pos_encoding:
+            type: log
+            params:
+                dimensionality: 2
+                num_bands: 20
+                freq: 200
+loss:
+    type: "Projective Distance" #  bce for occupancy, l1_dist for df
+    params:
+        alpha: 0.0001 # 0.0 for
+        beta: 0.1
+        gamma: 0.001
+        power: 3
+        plane_dist: True
+
+occupancy_mask:
+    nv: [100,100]
+##Data
+data:
+    train:
+        type: MCL2D 
+        params:
+            close_sample_d: 0.1 # 10cm / 100m = 0.002
+            folder: /indoor_scan_poses_2d
+            log: True
+            num_inter: 40
+

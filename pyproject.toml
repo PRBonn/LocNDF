@@ -1,0 +1,4 @@
+[project]
+name = "loc_ndf"
+description = "LocNDF: Neural Distance Field Mapping for Robot Localization"
+version = "0.0.1"

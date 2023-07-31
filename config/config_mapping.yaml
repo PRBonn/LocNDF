@@ -1,0 +1,51 @@
+experiment:
+    id: refactor
+
+##Training
+train:
+    n_gpus: 1
+    max_epoch: 10
+    lr: 0.0001
+    num_workers: 8
+    batch_size: 3
+
+##Network
+model:
+    type: Siren # Siren/ LidarNerf
+    params:
+        inter_fdim: 128
+        sigmoid: False
+        pos_encoding:
+            params:
+                dimensionality: 3
+                num_bands: 30
+                freq: 200
+loss:
+    type: "Projective Distance"
+    params:
+        alpha: 0.0001
+        beta: 0.1
+        gamma: 0.001
+        power: 3
+        plane_dist: True
+
+##Data
+occupancy_mask:
+    kernel_size: 3
+    nv: [100, 100, 20]
+
+data:
+    num_maps: 14
+    overlap_pct: 20
+    isosurface: 0.01 
+    gradient_ascent: False
+    train:
+        type: apollo_torch
+        params:
+            close_sample_d: 0.1
+            folder: apollo/MapData/ColumbiaPark/2018-09-21/3
+            scan_idx: 0
+            log: True
+            num_inter: 40
+            num_scans: 30
+            bb_size: [50, 50, 50]
