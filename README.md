@@ -4,7 +4,13 @@ LocNDF: Neural Distance Field Mapping for Robot Localization
 
 ## Installation
 
-For the installation simply clone the repo and pip install it.
+The system has been tested with Ubuntu-20.04 and Python3.9. Install the following dependencies if needed:
+
+```sh
+apt-get install libgl1-mesa-glx libx11-dev ldconfig
+```
+
+For the installation of the python package simply clone the repo and pip install it.
 
 ```sh
 git clone git@github.com:PRBonn/LocNDF.git
